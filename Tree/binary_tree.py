@@ -55,6 +55,30 @@ class Tree:
             result.append(level)
         return result
 
+    def max_depth(self, root):
+        if not root:
+            return 0
+        else:
+            left_depth = self.max_depth(root.left)
+            right_depth = self.max_depth(root.right)
+            return max(left_depth, right_depth) + 1
+
+    def max_depth_using_level_order(self, root):
+        if not root:
+            return 0
+        queue = []
+        queue.append(root)
+        depth = 0
+        while queue:
+            depth += 1
+            for _ in range(len(queue)):
+                node = queue.pop(0)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        return depth
+
 
 if __name__ == "__main__":
     n = int(input(f"Enter the number of nodes: "))
@@ -74,3 +98,7 @@ if __name__ == "__main__":
     tree.postorder(tree.root)
     print()
     print(f"Level order traversal of the tree is: {tree.levelorder(tree.root)}")
+    print(f"Maximum depth of the tree is: {tree.max_depth(tree.root)}")
+    print(
+        f"Maximum depth of the tree using level order traversal is: {tree.max_depth_using_level_order(tree.root)}"
+    )

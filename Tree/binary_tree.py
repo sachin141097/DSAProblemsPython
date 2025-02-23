@@ -1,3 +1,35 @@
+"""
+This script defines a binary tree and provides various methods to manipulate and traverse the tree.
+
+Classes:
+- Node: Represents a node in the binary tree.
+- Tree: Represents the binary tree and contains methods for insertion, traversal, and calculating the maximum depth.
+
+Methods:
+- insert: Inserts a new node with the given key into the binary tree.
+- preorder: Performs a preorder traversal of the binary tree.
+- inorder: Performs an inorder traversal of the binary tree.
+- postorder: Performs a postorder traversal of the binary tree.
+- levelorder: Performs a level order traversal of the binary tree.
+- max_depth: Calculates the maximum depth of the binary tree using recursion.
+- max_depth_using_level_order: Calculates the maximum depth of the binary tree using level order traversal.
+
+Approach:
+1. The `insert` method inserts a new node into the binary tree. If the tree is empty, the new node becomes the root. Otherwise, the method recursively finds the correct position for the new node based on its value.
+2. The `preorder`, `inorder`, and `postorder` methods perform their respective tree traversals using recursion.
+3. The `levelorder` method performs a level order traversal using a queue. It processes each level of the tree one by one and appends the values of the nodes at each level to the result list.
+4. The `max_depth` method calculates the maximum depth of the tree using recursion. It finds the maximum depth of the left and right subtrees and returns the greater of the two depths plus one.
+5. The `max_depth_using_level_order` method calculates the maximum depth of the tree using level order traversal. It processes each level of the tree and increments the depth counter for each level.
+
+Time Complexity:
+- The `insert` method has a time complexity of O(h), where h is the height of the tree.
+- The `preorder`, `inorder`, and `postorder` methods have a time complexity of O(n), where n is the number of nodes in the tree.
+- The `levelorder` method has a time complexity of O(n), where n is the number of nodes in the tree.
+- The `max_depth` method has a time complexity of O(n), where n is the number of nodes in the tree.
+- The `max_depth_using_level_order` method has a time complexity of O(n), where n is the number of nodes in the tree.
+"""
+
+
 class Node:
     def __init__(self, key):
         self.left = None
